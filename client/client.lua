@@ -51,10 +51,9 @@ CreateThread(function()
                 end
             end
             
-            data.obj = CreateObject(modelHash, Config.Rocks[i].x, Config.Rocks[i].y, Config.Rocks[i].z -1.2, false, false, false)
+            data.obj = CreateObject(modelHash, Config.Rocks[i].x, Config.Rocks[i].y, Config.Rocks[i].z -1.8, false, false, false)
             SetEntityHeading(data.obj, Config.Rocks[i].h)
             SetEntityAsMissionEntity(data.obj, true)
-            PlaceObjectOnGroundProperly(data.obj)
             Wait(1000)
             FreezeEntityPosition(data.obj, true)
             SetModelAsNoLongerNeeded(data.obj)
