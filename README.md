@@ -1,7 +1,7 @@
 # RexshackGaming
 - discord : https://discord.gg/YUV7ebzkqs
 - youtube : https://www.youtube.com/@rexshack/videos
-- tebex shop : https://rexshackgaming.tebex.io/
+- tebex store : https://rexshackgaming.tebex.io/
 - support me : https://ko-fi.com/rexshackgaming
 
 # rex-mining
