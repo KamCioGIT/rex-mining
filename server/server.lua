@@ -32,6 +32,13 @@ RSGCore.Commands.Add('createironnode', 'creates a iron mining node (admin only)'
     TriggerClientEvent('rex-mining:client:createminingnode', src, 'ironore', Config.IronRockProp)
 end, 'admin')
 
+RSGCore.Commands.Add('createcoalnode', 'creates a coal mining node (admin only)', {}, false, function(source)
+    local src = source
+    local Player = RSGCore.Functions.GetPlayer(src)
+    local cid = Player.PlayerData.citizenid
+    TriggerClientEvent('rex-mining:client:createminingnode', src, 'coal', Config.CoalRockProp)
+end, 'admin')
+
 ---------------------------------------------
 -- get all prop data
 ---------------------------------------------
@@ -219,7 +226,13 @@ AddEventHandler('rex-mining:server:giveyeld', function(propid, item, active, amo
     local Player = RSGCore.Functions.GetPlayer(src)
     Player.Functions.AddItem(item, amount)
     TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[item], 'add')
-	MySQL.update('UPDATE rex_mining SET active = ? WHERE propid = ?', { 0, propid })
+    local gemchance = math.random(100)
+    if gemchance > (100 - Config.GemChance) then
+        randomGem = Config.GemTypes[math.random(#Config.GemTypes)]
+        Player.Functions.AddItem(randomGem, 1)
+        TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[randomGem], 'add')
+    end
+    MySQL.update('UPDATE rex_mining SET active = ? WHERE propid = ?', { 0, propid })
 end)
 
 ---------------------------------------------
