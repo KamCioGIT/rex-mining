@@ -82,11 +82,10 @@ function modelrequest( model )
     end)
 end
 
-function PropPlacer(proptype, prop)
+function PropPlacer(proptype, prophash)
 
     local pHead = GetEntityHeading(cache.ped)
     local pos = GetEntityCoords(cache.ped)
-    local PropHash = GetHashKey(prop)
     local coords = GetEntityCoords(cache.ped)
     local _x,_y,_z = table.unpack(coords)
     local forward = GetEntityForwardVector(cache.ped)
@@ -99,13 +98,13 @@ function PropPlacer(proptype, prop)
 
     SetCurrentPedWeapon(cache.ped, -1569615261, true)
 
-    while not HasModelLoaded( PropHash ) do
+    while not HasModelLoaded( prophash ) do
         Wait(500)
-        modelrequest( PropHash )
+        modelrequest( prophash )
     end
 
-    local tempObj = CreateObject(PropHash, pos.x, pos.y, pos.z, false, false, false)
-    local tempObj2 = CreateObject(PropHash, pos.x, pos.y, pos.z, false, false, false)
+    local tempObj = CreateObject(prophash, pos.x, pos.y, pos.z, false, false, false)
+    local tempObj2 = CreateObject(prophash, pos.x, pos.y, pos.z, false, false, false)
     AttachEntityToEntity(tempObj2, cache.ped, 0, ox, oy, 0.5, 0.0, 0.0, 0, true, false, false, false, false)
     SetEntityAlpha(tempObj, 180)
     SetEntityAlpha(tempObj2, 0)
@@ -127,7 +126,7 @@ function PropPlacer(proptype, prop)
 
         if PromptHasHoldModeCompleted(SetPrompt) then
             FreezeEntityPosition(cache.ped, true)
-            TriggerEvent('rex-mining:client:placeNewProp', proptype, PropHash, pPos, heading )
+            TriggerEvent('rex-mining:client:placeNewProp', proptype, prophash, pPos, heading )
             DeleteEntity(tempObj2)
             DeleteEntity(tempObj)
             FreezeEntityPosition(cache.ped, false)
@@ -137,12 +136,12 @@ function PropPlacer(proptype, prop)
         if PromptHasHoldModeCompleted(CancelPrompt) then
             DeleteEntity(tempObj2)
             DeleteEntity(tempObj)
-            SetModelAsNoLongerNeeded(PropHash)
+            SetModelAsNoLongerNeeded(prophash)
             break
         end
     end
 end
 
-RegisterNetEvent('rex-mining:client:createminingnode', function(proptype, prop)
-    PropPlacer(proptype, prop)
+RegisterNetEvent('rex-mining:client:createminingnode', function(proptype, prophash)
+    PropPlacer(proptype, prophash)
 end)

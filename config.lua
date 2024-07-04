@@ -15,10 +15,10 @@ Config.PromptRotateRight = 'Rotate Right'
 -- settings
 ---------------------------------------------
 Config.EnableVegModifier = true -- if set true clears vegetation
-Config.GoldRockProp      = 'mp_sca_rock_grp_l_03' -- rock prop goldore
-Config.SliverRockProp    = 'mp_sca_rock_grp_l_03' -- rock prop silverore
-Config.CopperRockProp    = 'mp_sca_rock_grp_l_03' -- rock prop copperore
-Config.IronRockProp      = 'mp_sca_rock_grp_l_03' -- rock prop ironore
+Config.GoldRockProp      = `mp_sca_rock_grp_l_03` -- rock prop goldore
+Config.SilverRockProp    = `mp_sca_rock_grp_l_03` -- rock prop silverore
+Config.IronRockProp      = `mp_sca_rock_grp_l_03` -- rock prop ironore
+Config.CopperRockProp    = `mp_sca_rock_grp_l_03` -- rock prop copperore
 
 -- cronjob
 Config.MiningCronJob = '0 * * * *' -- cronjob time (every hour = 0 * * * *) / (every 30 mins = */30 * * * *)

@@ -22,7 +22,20 @@
 # Starting the resource:
 - add the following to your server.cfg file : ensure rex-mining
 
-# Commands
+# Add job
+- add jobs to "\rsg-core\shared\jobs.lua"
+```lua
+    ['miner'] = {
+        label = 'Miner',
+        defaultDuty = true,
+        offDutyPay = false,
+        grades = {
+            ['0'] = { name = 'Miner', payment = 3 },
+        },
+    },
+```
+
+# Commands Use (admin only)
 ```
 - admin use command /creategoldnode (creates a gold mining node and saves to the database)
 - admin use command /createsilvernode (creates a silver mining node and saves to the database)
