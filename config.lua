@@ -24,7 +24,7 @@ Config.GemChance      = 5 -- 5% chance of getting a gem
 
 -- cronjob
 Config.MiningCronJob = '0 * * * *' -- cronjob time (every hour = 0 * * * *) / (every 30 mins = */30 * * * *)
-Config.ServerNotify  = true
+Config.ServerNotify  = false
 
 -- gem types rewards
 Config.GemTypes = {

@@ -201,7 +201,9 @@ AddEventHandler('rex-mining:server:getProps', function()
 
     for i = 1, #result do
         local propData = json.decode(result[i].properties)
-        print('loading '..propData.proptype..' with ID: '..propData.id)
+        if Config.ServerNotify then
+            print('loading '..propData.proptype..' with ID: '..propData.id)
+        end
         table.insert(Config.Rocks, propData)
     end
 end)
