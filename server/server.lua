@@ -32,6 +32,13 @@ RSGCore.Commands.Add('createironnode', 'creates a iron mining node (admin only)'
     TriggerClientEvent('rex-mining:client:createminingnode', src, 'ironore', Config.IronRockProp)
 end, 'admin')
 
+RSGCore.Commands.Add('createleadnode', 'creates a lead mining node (admin only)', {}, false, function(source)
+    local src = source
+    local Player = RSGCore.Functions.GetPlayer(src)
+    local cid = Player.PlayerData.citizenid
+    TriggerClientEvent('rex-mining:client:createminingnode', src, 'leadore', Config.LeadRockProp)
+end, 'admin')
+
 RSGCore.Commands.Add('createcoalnode', 'creates a coal mining node (admin only)', {}, false, function(source)
     local src = source
     local Player = RSGCore.Functions.GetPlayer(src)

@@ -19,6 +19,7 @@ Config.GoldRockProp   = `mp_sca_rock_grp_l_03` -- rock prop goldore
 Config.SilverRockProp = `mp_sca_rock_grp_l_03` -- rock prop silverore
 Config.IronRockProp   = `mp_sca_rock_grp_l_03` -- rock prop ironore
 Config.CopperRockProp = `mp_sca_rock_grp_l_03` -- rock prop copperore
+Config.LeadRockProp   = `mp_sca_rock_grp_l_03` -- rock prop copperore
 Config.CoalRockProp   = `mp_sca_rock_grp_l_03` -- rock prop coal
 Config.GemChance      = 5 -- 5% chance of getting a gem
 
